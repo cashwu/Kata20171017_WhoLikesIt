@@ -27,7 +27,7 @@ namespace Kata20171017_WhoLikesIt
         {
             var kata = new Kata();
             var result = kata.Likes(new[] { "cash", "cash1" });
-            Assert.AreEqual("cash and cash1 likes this", result);
+            Assert.AreEqual("cash and cash1 like this", result);
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace Kata20171017_WhoLikesIt
         {
             var kata = new Kata();
             var result = kata.Likes(new[] { "cash", "cash1", "cash2" });
-            Assert.AreEqual("cash, cash1 and cash2 likes this", result);
+            Assert.AreEqual("cash, cash1 and cash2 like this", result);
         }
 
         [TestMethod]
@@ -43,7 +43,7 @@ namespace Kata20171017_WhoLikesIt
         {
             var kata = new Kata();
             var result = kata.Likes(new[] { "cash", "cash1", "cash2", "cash3" });
-            Assert.AreEqual("cash, cash1 and 2 others likes this", result);
+            Assert.AreEqual("cash, cash1 and 2 others like this", result);
         }
     }
 
@@ -55,11 +55,9 @@ namespace Kata20171017_WhoLikesIt
             switch (name.Length)
             {
                 case 0:
-                    likes = "no one";
-                    break;
+                    return "no one likes this";
                 case 1:
-                    likes = $"{name[0]}"; 
-                    break;
+                    return $"{name[0]} likes this"; 
                 case 2:
                     likes = $"{name[0]} and {name[1]}"; 
                     break;
@@ -71,7 +69,7 @@ namespace Kata20171017_WhoLikesIt
                     break;
             }
 
-            return $"{likes} likes this";
+            return $"{likes} like this";
         }
     }
 }
