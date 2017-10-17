@@ -13,13 +13,26 @@ namespace Kata20171017_WhoLikesIt
             var result = kata.Likes(new string[] { });
             Assert.AreEqual("no one likes this", result);
         }
+
+        [TestMethod]
+        public void Input_cash_should_return_cash_likes_this()
+        {
+            var kata = new Kata();
+            var result = kata.Likes(new[] { "cash" });
+            Assert.AreEqual("cash Likes this", result);
+        }
     }
 
     public class Kata
     {
         public string Likes(string[] name)
         {
-            return "no one likes this";
+            if (name.Length == 0)
+            {
+                return "no one likes this";
+            }
+
+            return $"{name[0]} Likes this";
         }
     }
 }
