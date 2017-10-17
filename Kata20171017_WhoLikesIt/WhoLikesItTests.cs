@@ -51,27 +51,27 @@ namespace Kata20171017_WhoLikesIt
     {
         public string Likes(string[] name)
         {
-            if (name.Length == 0)
+            string likes;
+            switch (name.Length)
             {
-                return "no one likes this";
+                case 0:
+                    likes = "no one";
+                    break;
+                case 1:
+                    likes = $"{name[0]}"; 
+                    break;
+                case 2:
+                    likes = $"{name[0]} and {name[1]}"; 
+                    break;
+                case 3:
+                    likes = $"{name[0]}, {name[1]} and {name[2]}"; 
+                    break;
+                default:
+                    likes = $"{name[0]}, {name[1]} and {name.Length - 2} others"; 
+                    break;
             }
 
-            if (name.Length == 1)
-            {
-                return $"{name[0]} likes this";
-            }
-
-            if (name.Length == 2)
-            {
-                return $"{name[0]} and {name[1]} likes this";
-            }
-
-            if (name.Length == 3)
-            {
-                return $"{name[0]}, {name[1]} and {name[2]} likes this";
-            }
-
-            return $"{name[0]}, {name[1]} and {name.Length - 2} others likes this";
+            return $"{likes} likes this";
         }
     }
 }
